@@ -113,7 +113,7 @@ elif option == 'Show Statistics':
             st.subheader(f'Histogram of PCE Values for Acceptor: {acceptor}')
             fig, ax = plt.subplots()
             ax.hist(filtered_df['PCE'].values, bins=100, color='green', alpha=0.5)
-            filtered_df['PCE'].plot.kde(ax=ax, secondary_y=True, color='green', alpha=0.7)  # Density plot
+            # filtered_df['PCE'].plot.kde(ax=ax, secondary_y=True, color='green', alpha=0.7)  # Density plot
             st.pyplot(fig)
             st.write(f"Maximum value of predicted PCE: {filtered_df['PCE'].max()}")
             st.write(f"Minimum value of predicted PCE: {filtered_df['PCE'].min()}")
