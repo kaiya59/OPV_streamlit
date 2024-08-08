@@ -67,26 +67,26 @@ if option == 'Show Data':
     # Display the molecules
     st.subheader('Molecule Structures:')
     st.write(f"PCE = {selected_row['PCE']}")
-    st.write("Tin Reagent:")
-    st.image(Draw.MolToImage(tin_reagent_mol))
+    # st.write("Tin Reagent:")
+    # st.image(Draw.MolToImage(tin_reagent_mol))
     
-    st.write("Ring B1:")
-    st.image(Draw.MolToImage(ring_b1_mol))
+    # st.write("Ring B1:")
+    # st.image(Draw.MolToImage(ring_b1_mol))
     
-    st.write("Ring B2:")
-    st.image(Draw.MolToImage(ring_b2_mol))
+    # st.write("Ring B2:")
+    # st.image(Draw.MolToImage(ring_b2_mol))
 
-    if chain1_mol is not None:
-        st.write("Side Chain 1:")
-        st.image(Draw.MolToImage(chain1_mol))
-    else:
-        st.write("Side Chain 1: -")
+    # if chain1_mol is not None:
+    #     st.write("Side Chain 1:")
+    #     st.image(Draw.MolToImage(chain1_mol))
+    # else:
+    #     st.write("Side Chain 1: -")
     
-    if chain2_mol is not None:
-        st.write("Side Chain 2:")
-        st.image(Draw.MolToImage(chain2_mol))
-    else:
-        st.write("Side Chain 2: -")
+    # if chain2_mol is not None:
+    #     st.write("Side Chain 2:")
+    #     st.image(Draw.MolToImage(chain2_mol))
+    # else:
+    #     st.write("Side Chain 2: -")
 
 elif option == 'Show Statistics':
     st.subheader('Statistics Options')
