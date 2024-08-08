@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from rdkit import Chem
-from rdkit.Chem import Draw
+# from rdkit.Chem import Draw
 
 # Load data
 df = pd.read_csv('predicted_pce.csv')
