@@ -62,13 +62,6 @@ if option == 'Show Data':
     chain1_smiles = selected_row['chain1']
     chain2_smiles = selected_row['chain2']
     
-    # Convert SMILES to molecule objects
-    # tin_reagent_smiles = m2s(s2m(tin_reagent_smiles))
-    # ring_b1_smiles = m2s(s2m(ring_b1_smiles))
-    # ring_b2_smiles = m2s(s2m(ring_b2_smiles))
-    # chain1_smiles = m2s(s2m(chain1_smiles))
-    # chain2_smiles = m2s(s2m(chain2_smiles))
-    
     # Display the molecules
     st.subheader('Molecule Structures:')
     st.write(f"PCE = {selected_row['PCE']}")
@@ -85,14 +78,14 @@ if option == 'Show Data':
     image_path = f"./img/ring_b2_{lookup_dict[ring_b2_smiles]}.png"
     st.image(image_path, use_column_width=True)
 
-    if chain1_mol is not None:
+    if chain1_smiles != '-':
         st.write("Side Chain 1:")
         image_path = f"./img/chain1_{lookup_dict[chain1_smiles]}.png"
         st.image(image_path, use_column_width=True)
     else:
         st.write("Side Chain 1: -")
     
-    if chain2_mol is not None:
+    if chain2_smiles != '-':
         st.write("Side Chain 2:")
         image_path = f"./img/chain2_{lookup_dict[chain2_smiles]}.png"
         st.image(image_path, use_column_width=True)
