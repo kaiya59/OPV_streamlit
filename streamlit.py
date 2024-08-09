@@ -3,10 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from rdkit import Chem
 import pickle
+from rdkit.Chem import MolFromSmiles as s2m
+from rdkit.Chem import MolToSmiles as m2s
 # from rdkit.Chem import Draw
 
 # Load data
 df = pd.read_csv('predicted_pce.csv')
+with open('block_image_lookup_table.pkl', 'rb') as f:
+    lookup_dict = pickle.load(f)
 
 # Streamlit App
 st.title('OPV Molecular Data Visualization')
@@ -59,35 +63,41 @@ if option == 'Show Data':
     chain2_smiles = selected_row['chain2']
     
     # Convert SMILES to molecule objects
-    tin_reagent_mol = Chem.MolFromSmiles(tin_reagent_smiles)
-    ring_b1_mol = Chem.MolFromSmiles(ring_b1_smiles)
-    ring_b2_mol = Chem.MolFromSmiles(ring_b2_smiles)
-    chain1_mol = Chem.MolFromSmiles(chain1_smiles)
-    chain2_mol = Chem.MolFromSmiles(chain2_smiles)
+    tin_reagent_smiles = m2s(s2m(tin_reagent_smiles))
+    ring_b1_smiles = m2s(s2m(ring_b1_smiles))
+    ring_b2_smiles = m2s(s2m(ring_b2_smiles))
+    chain1_smiles = m2s(s2m(chain1_smiles))
+    chain2_smiles = m2s(s2m(chain2_smiles))
     
     # Display the molecules
     st.subheader('Molecule Structures:')
     st.write(f"PCE = {selected_row['PCE']}")
-    # st.write("Tin Reagent:")
-    # st.image(Draw.MolToImage(tin_reagent_mol))
     
-    # st.write("Ring B1:")
-    # st.image(Draw.MolToImage(ring_b1_mol))
+    st.write("Tin Reagent:")
+    image_path = f"./img/tin_reagent_{lookup_dict[tin_reagent_smiles]}.png"
+    st.image(image_path, use_column_width=True)
     
-    # st.write("Ring B2:")
-    # st.image(Draw.MolToImage(ring_b2_mol))
+    st.write("Ring B1:")
+    image_path = f"./img/ring_b1_{lookup_dict[ring_b1_smiles]}.png"
+    st.image(image_path, use_column_width=True)
+    
+    st.write("Ring B2:")
+    image_path = f"./img/ring_b2_{lookup_dict[ring_b2_smiles]}.png"
+    st.image(image_path, use_column_width=True)
 
-    # if chain1_mol is not None:
-    #     st.write("Side Chain 1:")
-    #     st.image(Draw.MolToImage(chain1_mol))
-    # else:
-    #     st.write("Side Chain 1: -")
+    if chain1_mol is not None:
+        st.write("Side Chain 1:")
+        image_path = f"./img/chain1_{lookup_dict[chain1_smiles]}.png"
+        st.image(image_path, use_column_width=True)
+    else:
+        st.write("Side Chain 1: -")
     
-    # if chain2_mol is not None:
-    #     st.write("Side Chain 2:")
-    #     st.image(Draw.MolToImage(chain2_mol))
-    # else:
-    #     st.write("Side Chain 2: -")
+    if chain2_mol is not None:
+        st.write("Side Chain 2:")
+        image_path = f"./img/chain2_{lookup_dict[chain2_smiles]}.png"
+        st.image(image_path, use_column_width=True)
+    else:
+        st.write("Side Chain 2: -")
 
 elif option == 'Show Statistics':
     st.subheader('Statistics Options')
