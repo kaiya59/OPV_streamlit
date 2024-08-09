@@ -63,11 +63,11 @@ if option == 'Show Data':
     chain2_smiles = selected_row['chain2']
     
     # Convert SMILES to molecule objects
-    tin_reagent_smiles = m2s(s2m(tin_reagent_smiles))
-    ring_b1_smiles = m2s(s2m(ring_b1_smiles))
-    ring_b2_smiles = m2s(s2m(ring_b2_smiles))
-    chain1_smiles = m2s(s2m(chain1_smiles))
-    chain2_smiles = m2s(s2m(chain2_smiles))
+    # tin_reagent_smiles = m2s(s2m(tin_reagent_smiles))
+    # ring_b1_smiles = m2s(s2m(ring_b1_smiles))
+    # ring_b2_smiles = m2s(s2m(ring_b2_smiles))
+    # chain1_smiles = m2s(s2m(chain1_smiles))
+    # chain2_smiles = m2s(s2m(chain2_smiles))
     
     # Display the molecules
     st.subheader('Molecule Structures:')
