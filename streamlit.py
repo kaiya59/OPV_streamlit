@@ -67,20 +67,20 @@ if option == 'Show Data':
     st.write(f"PCE = {selected_row['PCE']}")
     
     st.write("Tin Reagent:")
-    image_path = f"./img/tin_reagent_{lookup_dict[tin_reagent_smiles]}.png"
+    image_path = f"./img1/{lookup_dict[tin_reagent_smiles]}.png"
     st.image(image_path, use_column_width=True)
     
     st.write("Ring B1:")
-    image_path = f"./img/ring_b1_{lookup_dict[ring_b1_smiles]}.png"
+    image_path = f"./img1/{lookup_dict[ring_b1_smiles]}.png"
     st.image(image_path, use_column_width=True)
     
     st.write("Ring B2:")
-    image_path = f"./img/ring_b2_{lookup_dict[ring_b2_smiles]}.png"
+    image_path = f"./img1/{lookup_dict[ring_b2_smiles]}.png"
     st.image(image_path, use_column_width=True)
 
     if chain1_smiles != '-':
         st.write("Side Chain 1:")
-        image_path = f"./img/chain1_{lookup_dict[chain1_smiles]}.png"
+        image_path = f"./img1/{lookup_dict[chain1_smiles]}.png"
         st.image(image_path, use_column_width=True)
     else:
         st.write("Side Chain 1: -")
