@@ -8,7 +8,7 @@ from rdkit.Chem import MolToSmiles as m2s
 # from rdkit.Chem import Draw
 
 # Load data
-df = pd.read_csv('predicted_pce1.csv')
+df = pd.read_csv('predicted_pce_all.csv')
 with open('lookup_table.pkl', 'rb') as f:
     lookup_dict = pickle.load(f)
 
