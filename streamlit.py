@@ -9,7 +9,7 @@ from rdkit.Chem import MolToSmiles as m2s
 
 # Load data
 df = pd.read_csv('predicted_pce1.csv')
-with open('block_image_lookup_table.pkl', 'rb') as f:
+with open('lookup_table.pkl', 'rb') as f:
     lookup_dict = pickle.load(f)
 
 # Streamlit App
@@ -67,27 +67,27 @@ if option == 'Show Data':
     st.write(f"PCE = {selected_row['PCE']}")
     
     st.write("Tin Reagent:")
-    image_path = f"./img/tin_reagent_{lookup_dict['tin_reagent'][tin_reagent_smiles]}.png"
+    image_path = f"./img/tin_reagent_{lookup_dict[tin_reagent_smiles]}.png"
     st.image(image_path, use_column_width=True)
     
     st.write("Ring B1:")
-    image_path = f"./img/ring_b1_{lookup_dict['ring_b1'][ring_b1_smiles]}.png"
+    image_path = f"./img/ring_b1_{lookup_dict[ring_b1_smiles]}.png"
     st.image(image_path, use_column_width=True)
     
     st.write("Ring B2:")
-    image_path = f"./img/ring_b2_{lookup_dict['ring_b2'][ring_b2_smiles]}.png"
+    image_path = f"./img/ring_b2_{lookup_dict[ring_b2_smiles]}.png"
     st.image(image_path, use_column_width=True)
 
     if chain1_smiles != '-':
         st.write("Side Chain 1:")
-        image_path = f"./img/chain1_{lookup_dict['chain1'][chain1_smiles]}.png"
+        image_path = f"./img/chain1_{lookup_dict[chain1_smiles]}.png"
         st.image(image_path, use_column_width=True)
     else:
         st.write("Side Chain 1: -")
     
     if chain2_smiles != '-':
         st.write("Side Chain 2:")
-        image_path = f"./img/chain2_{lookup_dict['chain2'][chain2_smiles]}.png"
+        image_path = f"./img/chain2_{lookup_dict[chain2_smiles]}.png"
         st.image(image_path, use_column_width=True)
     else:
         st.write("Side Chain 2: -")
