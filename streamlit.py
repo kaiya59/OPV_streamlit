@@ -87,7 +87,7 @@ if option == 'Show Data':
     
     if chain2_smiles != '-':
         st.write("Side Chain 2:")
-        image_path = f"./img/chain2_{lookup_dict[chain2_smiles]}.png"
+        image_path = f"./img1/{lookup_dict[chain2_smiles]}.png"
         st.image(image_path, use_column_width=False)
     else:
         st.write("Side Chain 2: -")
