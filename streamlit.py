@@ -68,27 +68,27 @@ if option == 'Show Data':
     
     st.write("Tin Reagent:")
     image_path = f"./img1/{lookup_dict[tin_reagent_smiles]}.png"
-    st.image(image_path, use_column_width=True)
+    st.image(image_path, use_column_width=False)
     
     st.write("Ring B1:")
     image_path = f"./img1/{lookup_dict[ring_b1_smiles]}.png"
-    st.image(image_path, use_column_width=True)
+    st.image(image_path, use_column_width=False)
     
     st.write("Ring B2:")
     image_path = f"./img1/{lookup_dict[ring_b2_smiles]}.png"
-    st.image(image_path, use_column_width=True)
+    st.image(image_path, use_column_width=False)
 
     if chain1_smiles != '-':
         st.write("Side Chain 1:")
         image_path = f"./img1/{lookup_dict[chain1_smiles]}.png"
-        st.image(image_path, use_column_width=True)
+        st.image(image_path, use_column_width=False)
     else:
         st.write("Side Chain 1: -")
     
     if chain2_smiles != '-':
         st.write("Side Chain 2:")
         image_path = f"./img/chain2_{lookup_dict[chain2_smiles]}.png"
-        st.image(image_path, use_column_width=True)
+        st.image(image_path, use_column_width=False)
     else:
         st.write("Side Chain 2: -")
 
